@@ -1,3 +1,5 @@
+# Douglas Brion
+
 # Import the necessary libraries
 from scipy import *
 from scipy import signal
@@ -7,7 +9,7 @@ import scipy.misc
 import matplotlib.pyplot as plt
 
 # Image you want to test the corner detection on
-usedImage = 'ny.jpeg'
+usedImage = 'lena.jpeg'
 
 # Open JPEG image as an array
 img = array(Image.open(usedImage).convert("L"))
@@ -100,7 +102,7 @@ scipy.misc.imsave('Wtr.jpeg', Wtr)
 harrisImage = Wdet
 
 # Threshold for eliminating noise
-threshold = 0.4
+threshold = 0.5
 
 # Minimum distance from picture edge
 minDistance = 10
