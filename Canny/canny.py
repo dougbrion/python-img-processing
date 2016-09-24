@@ -40,25 +40,45 @@ kernelY = [[-1, -2, -1],
            [0, 0, 0],
            [1, 2, 1]]
 
+# Diagonal Sobel kernel (Kirsch)
+kernelXY = [[0,1,2],
+            [-1,0,1],
+            [-2,-1,0]]
+
+# Diagonal Sobel kernel (Kirsch)
+kernelYX = [[-2,-1,0],
+            [-1,0,1],
+            [0,1,2]]
+
 # CONVOLUTION 2
 # Convolute the smoothed image with the horizontal and vertical sobel kernels
 # Generate output array imX of horizontal convolution
 imX = signal.convolve(gaussian, kernelX, mode='same')
 # Generate output array imY of vertical convolution
 imY = signal.convolve(gaussian, kernelY, mode='same')
+# Generate output array imX of horizontal convolution
+imXY = signal.convolve(gaussian, kernelXY, mode='same')
+# Generate output array imY of vertical convolution
+imYX = signal.convolve(gaussian, kernelYX, mode='same')
 
 # Print arrays to console
-print ('Im X: Convolution 1')
+print ('Im X: Convolution 2')
 print (imX)
-print ('Im Y: Convolution 1')
+print ('Im Y: Convolution 2')
 print (imY)
+print ('Im XY: Convolution 2')
+print (imXY)
+print ('Im YX: Convolution 2')
+print (imYX)
 
 # Save the arrays created as JPEG images
 scipy.misc.imsave('imX.jpeg', imX)
 scipy.misc.imsave('imY.jpeg', imY)
+scipy.misc.imsave('imXY.jpeg', imXY)
+scipy.misc.imsave('imYX.jpeg', imYX)
 
 # The horizontal and vertical gradient approximations are combined to give final gradient magnitude
-imFinal = sqrt(imX*imX + imY*imY)
+imFinal = sqrt(imX*imX + imY*imY + imXY*imXY + imYX*imYX)
 
 # Print the canny edge detected image array
 print ('Im Final: Combining Gradient Approximations')
