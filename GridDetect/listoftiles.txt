@@ -1,0 +1,15 @@
+In python we preferably need to get grid detection working with the following tiles:
+
+Blank
+And gate
+Or gate
+Not gate
+Xor gate
+Nand gate
+Nor gate
+In/Out wire
+Perpendicular wire
+Overlap wires
+3 way junction
+4 way junction
+Inputs? thoughts?
